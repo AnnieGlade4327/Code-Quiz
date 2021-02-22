@@ -7,7 +7,46 @@
 
 ![photo of quiz application](code-quiz.png)
 
+# Coding Quiz
 
+```javascript
+
+function getQuestion() {
+  // get current question object from array
+  var currentQuestion = questions[currentQuestionIndex];
+
+  // update title with current question
+  var titleEl = document.getElementById("question-title");
+  titleEl.textContent = currentQuestion.title;
+
+  // clear out any old question choices
+  choicesEl.innerHTML = "";
+
+  // loop over choices
+  currentQuestion.choices.forEach(function(choice, i) {
+    // create new button for each choice
+    var choiceNode = document.createElement("button");
+    choiceNode.setAttribute("class", "choice");
+    choiceNode.setAttribute("value", choice);
+
+    choiceNode.textContent = i + 1 + ". " + choice;
+
+    // attach click event listener to each choice
+    choiceNode.onclick = questionClick;
+
+    // display on the page
+    choicesEl.appendChild(choiceNode);
+  });
+}
+function printHighscores() {
+    // either get scores from localstorage or set to empty array
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+  
+    // sort highscores by score property in descending order
+    highscores.sort(function(a, b) {
+      return b.score - a.score;
+    });
+  ```
 # Demo
 
 * Quiz In Action

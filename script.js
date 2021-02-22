@@ -14,7 +14,7 @@ var feedbackEl = document.getElementById("feedback");
 
 // sound effects
 var Right = new Audio("ya.wav");
-var Wrong = new Audio("recording.wav");
+var Wrong = new Audio("Recording.wav");
 
 function startQuiz() {
   // hide start screen
